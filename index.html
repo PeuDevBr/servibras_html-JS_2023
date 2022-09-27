@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servibras</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="dropdown">
+            <input 
+                type="text" 
+                class="inputText"
+                readonly
+                placeholder="Capacidade"
+            >
+    
+            <div class="option">
+                <div onclick="showAmountDescription('9.000 Btus')">9.000 Btus</div>
+                <div onclick="showAmountDescription('12.000 Btus')">12.000 Btus</div>
+                <div onclick="showAmountDescription('24.000 Btus')">24.000 Btus</div>
+                <div onclick="showAmountDescription('36.000 Btus')">36.000 Btus</div>
+                <div onclick="showAmountDescription('60.000 Btus')">60.000 Btus</div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h3>Orçamento:</h3>
+        <p id="firstCopper"></p>
+        <p id="secondCopper"></p>
+        <p id="firstSpongy"></p>
+        <p id="secondSpongy"></p>
+        <p id="aluminumTape"></p>
+        <p id="pvcTape"></p>
+        <p id="support"></p>
+        <p id="cable"></p>
+
+
+    </main>
+    
+    <script src="./script.js"></script>
+</body>
+</html>
