@@ -7,21 +7,22 @@
     font-family: 'Poppins', sans-serif;
 }
 
-header {
+form {
     display: flex;
     min-height: 20vh;
-    margin-left: 20px;
     background: #f9f9f9;
+    justify-content: space-between;
+    padding: 0 1rem;
 }
 
 .dropdown {
     position: relative;
     margin-top: 50px;
-    width: 300px;
+    width: 170px;
     height: 50px;
 }
 
-.dropdown::before {
+.dropdown.menu::before {
     content: '';
     position: absolute;
     top: 25px;
@@ -38,7 +39,7 @@ header {
     right: 20px;
 }
 
-.dropdown::after {
+.dropdown.menu::after {
     content: '';
     position: absolute;
     top: 25px;
@@ -55,7 +56,7 @@ header {
     right: 28px;
 }
 
-.dropdown input {
+.dropdown input, .dropdown a  {
     position: absolute;
     top: 0;
     left: 0;
@@ -69,6 +70,16 @@ header {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     outline: none;
     border: none;
+}
+
+.dropdown a {
+    background: #2fec5f;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.dropdown a:hover {
+    background: #1ad649;
 }
 
 .dropdown .option {
@@ -89,16 +100,51 @@ header {
     opacity: 1;
 }
 
-.dropdown .option div {
+.dropdown .option li {
     padding: 12px 20px;
     cursor: pointer;
 }
 
-.dropdown .option div:hover {
+.dropdown .option li:hover {
     background: #62baea;
     color: #fff;
 }
 
-main {
-    margin: 30px;
+caption {
+    font-size: 1.7rem;
+    padding: 1rem;
+}
+
+
+tr {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+td, th {
+    width: 12rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.4rem;
+}
+
+th {
+    font-size: 1.3rem;
+}
+
+td {
+    font-weight: 500;
+}
+
+.descriptionTable {
+    justify-content: flex-start;
+}
+
+.gray {
+    background-color: #efefefbb;
+    border-radius: 5px;
 }

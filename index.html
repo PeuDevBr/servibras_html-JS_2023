@@ -9,36 +9,125 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="dropdown">
+    <form>
+        <div class="dropdown menu" id="dropdownCapacity">
             <input 
                 type="text" 
                 class="inputText"
+                id="inputCapacity"
                 readonly
                 placeholder="Capacidade"
+                required
             >
     
-            <div class="option">
-                <div onclick="showAmountDescription('9.000 Btus')">9.000 Btus</div>
-                <div onclick="showAmountDescription('12.000 Btus')">12.000 Btus</div>
-                <div onclick="showAmountDescription('24.000 Btus')">24.000 Btus</div>
-                <div onclick="showAmountDescription('36.000 Btus')">36.000 Btus</div>
-                <div onclick="showAmountDescription('60.000 Btus')">60.000 Btus</div>
-            </div>
+            <ul class="option">
+                <li onclick="showAmountDescription('9.000 Btus')"> 9.000 Btus</li>
+                <li onclick="showAmountDescription('12.000 Btus')">12.000 Btus</li>
+                <li onclick="showAmountDescription('18.000 Btus')">18.000 Btus</li>
+                <li onclick="showAmountDescription('24.000 Btus')">24.000 Btus</li>
+                <li onclick="showAmountDescription('30.000 Btus')">30.000 Btus</li>
+                <li onclick="showAmountDescription('36.000 Btus')">36.000 Btus</li>
+                <li onclick="showAmountDescription('48.000 Btus')">48.000 Btus</li>
+                <li onclick="showAmountDescription('60.000 Btus')">60.000 Btus</li>
+            </ul>
         </div>
-    </header>
+
+        <div class="dropdown menu" id="dropdownType">
+            <input 
+                type="text" 
+                class="inputText"
+                id="inputType"
+                readonly
+                placeholder="Tipo"
+            >
+    
+            <ul class="option">
+                <li onclick="showAmountDescription('Normal')">Normal</li>
+                <li onclick="showAmountDescription('Inverter')">Inverter</li>
+            </ul>
+        </div>
+
+        <div class="dropdown">
+            <input 
+                type="number" 
+                class="inputQuantity" 
+                id="inputType"
+                placeholder="Metragem"
+            >    
+        </div>
+
+        <div class="dropdown">
+            <a 
+                type="number" 
+                class="button" 
+                placeholder="Metragem"
+            >Calcular</a>
+        </div>
+    </form>
     <main>
-        <h3>Orçamento:</h3>
-        <p id="firstCopper"></p>
-        <p id="secondCopper"></p>
-        <p id="firstSpongy"></p>
-        <p id="secondSpongy"></p>
-        <p id="aluminumTape"></p>
-        <p id="pvcTape"></p>
-        <p id="support"></p>
-        <p id="cable"></p>
+        <table>
+            <caption>Orçamento: </caption>
 
+            <thead>
+                <tr>
+                    <th>Descrição</th>
+                    <th>Quantidade</th>
+                    <th>Valor</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
 
+            <tbody>
+                <tr class="gray">
+                    <td id="firstCopper" class="descriptionTable" ></td>
+                    <td id="firstCopperQuantity"></td>
+                    <td id="firstCopperAmount"></td>
+                    <td id="firstCopperTotal"></td>
+                </tr>
+                <tr>
+                    <td id="secondCopper" class="descriptionTable"></td>
+                    <td id="secondCopperQuantity"></td>
+                    <td id="secondCopperAmount"></td>
+                    <td id="secondCopperTotal"></td>
+                </tr>
+                <tr class="gray">
+                    <td id="firstSpongy" class="descriptionTable"></td>
+                    <td id="firstSpongyQuantity"></td>
+                    <td id="firstSpongyAmount"></td>
+                    <td id="firstSpongyTotal"></td>
+                </tr>
+                <tr>
+                    <td id="secondSpongy" class="descriptionTable"></td>
+                    <td id="secondSpongyQuantity"></td>
+                    <td id="secondSpongyAmount"></td>
+                    <td id="secondSpongyTotal"></td>
+                </tr>
+                <tr class="gray">
+                    <td id="aluminumTape" class="descriptionTable"></td>
+                    <td id="aluminumTapeQuantity"></td>
+                    <td id="aluminumTapeAmount"></td>
+                    <td id="aluminumTapeTotal"></td>
+                </tr>
+                <tr>
+                    <td id="pvcTape" class="descriptionTable"></td>
+                    <td id="pvcTapeQuantity"></td>
+                    <td id="pvcTapeAmount"></td>
+                    <td id="pvcTapeTotal"></td>
+                </tr>
+                <tr class="gray">
+                    <td id="support" class="descriptionTable"></td>
+                    <td id="supportQuantity"></td>
+                    <td id="supportAmount"></td>
+                    <td id="supportTotal"></td>
+                </tr>
+                <tr>
+                    <td id="cable" class="descriptionTable"></td>
+                    <td id="cableQuantity"></td>
+                    <td id="cableAmount"></td>
+                    <td id="cableTotal"></td>
+                </tr>   
+            </tbody>
+        </table>
     </main>
     
     <script src="./script.js"></script>
