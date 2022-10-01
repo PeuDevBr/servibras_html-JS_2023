@@ -2,8 +2,33 @@ const dropdownCapacity = document.querySelector('#dropdownCapacity');
 const dropdownType = document.querySelector('#dropdownType');
 const button = document.querySelector('.button');
 
-const amount = 25.00;
-quantity = 3;
+quantity = 13;
+
+const values = 
+    {
+        copper_1_4: 15.00,
+        copper_3_8: 20.00,
+        copper_1_2: 22.00,
+        copper_5_8: 27.00,
+        copper_3_4: 30.00,
+
+        spongy_1_4: 3.00,
+        spongy_3_8: 3.00,
+        spongy_1_2: 4.00,
+        spongy_5_8: 5.00,
+        spongy_3_4: 6.00,
+
+        aluminumTape: 6.50,
+        pvcTape: 5.00,
+
+        support_7_12: 30.00,
+        support_18_24: 50.00,
+        support_30_36: 70.00,
+
+        cable_3_x_1_5: 10.00,
+        cable_4_x_2_5: 15.00,
+        'cobre de 1/4': 10.00
+    }
 
 const description_HTML = ['#firstCopper', '#secondCopper', '#firstSpongy', '#secondSpongy', '#aluminumTape', '#pvcTape', '#support', '#cable'];
 
@@ -13,22 +38,46 @@ const amounts_HTML = ['#firstCopperAmount', '#secondCopperAmount', '#firstSpongy
 
 const total_HTML = ['#firstCopperTotal', '#secondCopperTotal', '#firstSpongyTotal', '#secondSpongyTotal', '#aluminumTapeTotal', '#pvcTapeTotal', '#supportTotal', '#cableTotal'];
 
-const description_9k = ['Cobre de 1/4', 'Cobre de 3/8', 'Esponjoso de 1/4', 'Esponjoso de 3/8', 'Fita alumínio', 'Fita pvc', 'Suporte 7k-12k', 'Cabo pp 3 x 1,5'];
 
-const description_12k = ['Cobre de 1/4', 'Cobre de 1/2', 'Esponjoso de 1/4', 'Esponjoso de 1/2', 'Fita alumínio', 'Fita pvc', 'Suporte 7k-12k', 'Cabo pp 3 x 1,5'];
+const amountList = 
+[
+    //amount_9k
+    [values.copper_1_4, values.copper_3_8, values.spongy_1_4, values.spongy_3_8, values.aluminumTape, values.pvcTape, values.support_7_12, values.cable_3_x_1_5], 
+    //amount_12k
+    [values.copper_1_4, values.copper_1_2, values.spongy_1_4, values.spongy_1_2, values.aluminumTape, values.pvcTape, values.support_7_12, values.cable_3_x_1_5], 
+    //amount_18k
+    [values.copper_1_4, values.copper_1_2, values.spongy_1_4, values.spongy_1_2, values.aluminumTape, values.pvcTape, values.support_18_24, values.cable_3_x_1_5], 
+    //amounts_24k
+    [values.copper_3_8, values.copper_5_8, values.spongy_3_8, values.spongy_5_8, values.aluminumTape, values.pvcTape, values.support_18_24, values.cable_4_x_2_5], 
+    //amounts_30k
+    [values.copper_3_8, values.copper_5_8, values.spongy_3_8, values.spongy_5_8, values.aluminumTape, values.pvcTape, values.support_30_36, values.cable_4_x_2_5], 
+    //amounts_36k
+    [values.copper_3_8, values.copper_3_4, values.spongy_3_8, values.spongy_3_4, values.aluminumTape, values.pvcTape, values.support_30_36, values.cable_4_x_2_5], 
+    //amounts_48k
+    [values.copper_3_8, values.copper_3_4, values.spongy_3_8, values.spongy_3_4, values.aluminumTape, values.pvcTape, 0, values.cable_4_x_2_5], 
+    //amounts_60k
+    [values.copper_3_8, values.copper_3_4, values.spongy_3_8, values.spongy_3_4, values.aluminumTape, values.pvcTape, 0, values.cable_4_x_2_5]
+];
 
-const description_18k = ['Cobre de 1/4', 'Cobre de 1/2', 'Esponjoso de 1/4', 'Esponjoso de 1/2', 'Fita alumínio', 'Fita pvc', 'Suporte 18-24k', 'Cabo pp 3 x 1,5'];
-
-const description_24k = ['Cobre de 3/8', 'Cobre de 5/8', 'Esponjoso de 3/8', 'Esponjoso de 5/8', 'Fita alumínio', 'Fita pvc', 'Suporte 18-24k', 'Cabo pp 4 x 2,5'];
-
-const description_30k = ['Cobre de 3/8', 'Cobre de 5/8', 'Esponjoso de 3/8', 'Esponjoso de 5/8', 'Fita alumínio', 'Fita pvc', 'Suporte 18-24k', 'Cabo pp 4 x 2,5'];
-
-const description_36k = ['Cobre de 3/8', 'Cobre de 3/4', 'Esponjoso de 3/8', 'Esponjoso de 3/4', 'Fita alumínio', 'Fita pvc', 'Suporte 30-36k', 'Cabo pp 4 x 2,5'];
-
-const description_48k = ['Cobre de 3/8', 'Cobre de 3/4', 'Esponjoso de 3/8', 'Esponjoso de 3/4', 'Fita alumínio', 'Fita pvc', '--------------', 'Cabo pp 4 x 2,5'];
-
-const description_60k = ['Cobre de 3/8', 'Cobre de 3/4', 'Esponjoso de 3/8', 'Esponjoso de 3/4', 'Fita alumínio', 'Fita pvc', '--------------', 'Cabo pp 4 x 2,5'];
-
+const descriptionList =
+[
+    //description_9k
+    ['Cobre de 1/4', 'Cobre de 3/8', 'Esponjoso de 1/4', 'Esponjoso de 3/8', 'Fita alumínio', 'Fita pvc', 'Suporte 7k-12k', 'Cabo pp 3 x 1,5'], 
+    //description_12k
+    ['Cobre de 1/4', 'Cobre de 1/2', 'Esponjoso de 1/4', 'Esponjoso de 1/2', 'Fita alumínio', 'Fita pvc', 'Suporte 7k-12k', 'Cabo pp 3 x 1,5'], 
+    //description_18k
+    ['Cobre de 1/4', 'Cobre de 1/2', 'Esponjoso de 1/4', 'Esponjoso de 1/2', 'Fita alumínio', 'Fita pvc', 'Suporte 18-24k', 'Cabo pp 3 x 1,5'], 
+    //description_24k
+    ['Cobre de 3/8', 'Cobre de 5/8', 'Esponjoso de 3/8', 'Esponjoso de 5/8', 'Fita alumínio', 'Fita pvc', 'Suporte 18-24k', 'Cabo pp 4 x 2,5'], 
+    //description_30k
+    ['Cobre de 3/8', 'Cobre de 5/8', 'Esponjoso de 3/8', 'Esponjoso de 5/8', 'Fita alumínio', 'Fita pvc', 'Suporte 30-36k', 'Cabo pp 4 x 2,5'], 
+    //description_36k
+    ['Cobre de 3/8', 'Cobre de 3/4', 'Esponjoso de 3/8', 'Esponjoso de 3/4', 'Fita alumínio', 'Fita pvc', 'Suporte 30-36k', 'Cabo pp 4 x 2,5'], 
+    //description_48k
+    ['Cobre de 3/8', 'Cobre de 3/4', 'Esponjoso de 3/8', 'Esponjoso de 3/4', 'Fita alumínio', 'Fita pvc', '--------------', 'Cabo pp 4 x 2,5'], 
+    //description_60k
+    ['Cobre de 3/8', 'Cobre de 3/4', 'Esponjoso de 3/8', 'Esponjoso de 3/4', 'Fita alumínio', 'Fita pvc', '--------------', 'Cabo pp 4 x 2,5']
+];
 
 dropdownCapacity.onclick = function() {
     dropdownCapacity.classList.toggle('active');
@@ -39,74 +88,75 @@ dropdownType.onclick = function() {
 }
 
 
+function formatAmount(amount) {
+    const formatedAmount = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+    }).format(amount);
+
+    return formatedAmount;
+}
+
+function tableHTMLShow (index) {
+    for (let i = 0; i < description_HTML.length; i++) {
+
+        document.querySelector(description_HTML[i]).innerHTML = descriptionList[index][i];
+        document.querySelector(amounts_HTML[i]).innerHTML = `R$ ${formatAmount(amountList[index][i])}`;
+        
+        if(i < 2) { //Calculate the total amount of copper
+            document.querySelector(quantities_HTML[i]).innerHTML = quantity;
+            document.querySelector(total_HTML[i]).innerHTML = `R$ ${formatAmount(amountList[index][i] * quantity)}`;
+        } else if(i < 4) { //Calculate the total amount of the spongy
+            document.querySelector(quantities_HTML[i]).innerHTML = Math.ceil(quantity / 2);
+            document.querySelector(total_HTML[i]).innerHTML = `R$ ${formatAmount(amountList[index][i] * Math.ceil(quantity / 2))}`;
+        } else if(i < 6) { //Calculate the total amount of the aluminumTape and pvcTape
+            document.querySelector(quantities_HTML[i]).innerHTML = Math.ceil(quantity / 5);
+            document.querySelector(total_HTML[i]).innerHTML = `R$ ${formatAmount(amountList[index][i] * Math.ceil(quantity / 5))}`;
+        } else if(i === 7) { //Calculate the total amount of the cable
+            document.querySelector(quantities_HTML[i]).innerHTML = quantity;
+            document.querySelector(total_HTML[i]).innerHTML = `R$ ${formatAmount(amountList[index][i] * quantity)}`;
+        } else { //Calculate the total amount of the support
+            document.querySelector(quantities_HTML[i]).innerHTML = 1;
+            document.querySelector(total_HTML[i]).innerHTML = `R$ ${formatAmount(amountList[index][i])}`;
+        }
+    }
+}
+
+
  function showAmountDescription(capacity) {
     document.querySelector('#inputCapacity').value = capacity;
 
     if(capacity === '9.000 Btus') {
 
-        for (let i = 0; i < description_HTML.length; i++) {
-            document.querySelector(description_HTML[i]).innerHTML = description_9k[i];
-            document.querySelector(quantities_HTML[i]).innerHTML = quantity;
-            document.querySelector(amounts_HTML[i]).innerHTML = `R$ ${amount}`;
-            document.querySelector(total_HTML[i]).innerHTML = `R$ ${amount * quantity}`;
-        }
+        tableHTMLShow(0);
+
     } else if(capacity === '12.000 Btus') {
 
-        for (let i = 0; i < description_HTML.length; i++) {
-            document.querySelector(description_HTML[i]).innerHTML = description_12k[i];
-            document.querySelector(quantities_HTML[i]).innerHTML = quantity;
-            document.querySelector(amounts_HTML[i]).innerHTML = `R$ ${amount}`;
-            document.querySelector(total_HTML[i]).innerHTML = `R$ ${amount * quantity}`;
-        }
+        tableHTMLShow(1);
+
     } else if(capacity === '18.000 Btus') {
 
-        for (let i = 0; i < description_HTML.length; i++) {
-            document.querySelector(description_HTML[i]).innerHTML = description_18k[i];
-            document.querySelector(quantities_HTML[i]).innerHTML = quantity;
-            document.querySelector(amounts_HTML[i]).innerHTML = `R$ ${amount}`;
-            document.querySelector(total_HTML[i]).innerHTML = `R$ ${amount * quantity}`;
-        }
+        tableHTMLShow(2);
+        
     } else if(capacity === '24.000 Btus') {
 
-        for (let i = 0; i < description_HTML.length; i++) {
-            document.querySelector(description_HTML[i]).innerHTML = description_24k[i];
-            document.querySelector(quantities_HTML[i]).innerHTML = quantity;
-            document.querySelector(amounts_HTML[i]).innerHTML = `R$ ${amount}`;
-            document.querySelector(total_HTML[i]).innerHTML = `R$ ${amount * quantity}`;
-        }
+        tableHTMLShow(3);
+        
     }  else if(capacity === '30.000 Btus') {
 
-        for (let i = 0; i < description_HTML.length; i++) {
-            document.querySelector(description_HTML[i]).innerHTML = description_30k[i];
-            document.querySelector(quantities_HTML[i]).innerHTML = quantity;
-            document.querySelector(amounts_HTML[i]).innerHTML = `R$ ${amount}`;
-            document.querySelector(total_HTML[i]).innerHTML = `R$ ${amount * quantity}`;
-        }
+        tableHTMLShow(4);
+
     } else if(capacity === '36.000 Btus') {
 
-        for (let i = 0; i < description_HTML.length; i++) {
-            document.querySelector(description_HTML[i]).innerHTML = description_36k[i];
-            document.querySelector(quantities_HTML[i]).innerHTML = quantity;
-            document.querySelector(amounts_HTML[i]).innerHTML = `R$ ${amount}`;
-            document.querySelector(total_HTML[i]).innerHTML = `R$ ${amount * quantity}`;
-        }
+        tableHTMLShow(5);
+
     } else if(capacity === '48.000 Btus') {
 
-        for (let i = 0; i < description_HTML.length; i++) {
-            document.querySelector(description_HTML[i]).innerHTML = description_48k[i];
-            document.querySelector(quantities_HTML[i]).innerHTML = quantity;
-            document.querySelector(amounts_HTML[i]).innerHTML = `R$ ${amount}`;
-            document.querySelector(total_HTML[i]).innerHTML = `R$ ${amount * quantity}`;
-        }
+        tableHTMLShow(6);
+
     } else if(capacity === '60.000 Btus') {
 
-        for (let i = 0; i < description_HTML.length; i++) {
-            document.querySelector(description_HTML[i]).innerHTML = description_60k[i];
-            document.querySelector(quantities_HTML[i]).innerHTML = quantity;
-            document.querySelector(amounts_HTML[i]).innerHTML = `R$ ${amount}`;
-            document.querySelector(total_HTML[i]).innerHTML = `R$ ${amount * quantity}`;
-        }
+        tableHTMLShow(7);
+
     }     
 }
-
-
