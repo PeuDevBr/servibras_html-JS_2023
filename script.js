@@ -2,7 +2,7 @@ const dropdownCapacity = document.querySelector('#dropdownCapacity');
 const dropdownType = document.querySelector('#dropdownType');
 const button = document.querySelector('.button');
 
-quantity = 13;
+let capacityValue, typeValue
 
 const values = 
     {
@@ -27,7 +27,6 @@ const values =
 
         cable_3_x_1_5: 10.00,
         cable_4_x_2_5: 15.00,
-        'cobre de 1/4': 10.00
     }
 
 const description_HTML = ['#firstCopper', '#secondCopper', '#firstSpongy', '#secondSpongy', '#aluminumTape', '#pvcTape', '#support', '#cable'];
@@ -97,7 +96,7 @@ function formatAmount(amount) {
     return formatedAmount;
 }
 
-function tableHTMLShow (index) {
+function tableHTMLShow (index, quantity) {
     for (let i = 0; i < description_HTML.length; i++) {
 
         document.querySelector(description_HTML[i]).innerHTML = descriptionList[index][i];
@@ -122,41 +121,52 @@ function tableHTMLShow (index) {
     }
 }
 
+function showTypeDescription(type) {
+    document.querySelector('#inputType').value = type;
+    typeValue = type;
+}
 
  function showAmountDescription(capacity) {
-    document.querySelector('#inputCapacity').value = capacity;
+    document.querySelector('#inputCapacity').value = capacity;     
+    capacityValue = capacity;
+}
 
-    if(capacity === '9.000 Btus') {
 
-        tableHTMLShow(0);
+function calculate() {
 
-    } else if(capacity === '12.000 Btus') {
+    let metreage = document.querySelector('#inputMetreage').value ; 
 
-        tableHTMLShow(1);
+    if(capacityValue === '9.000 Btus') {
 
-    } else if(capacity === '18.000 Btus') {
+        tableHTMLShow(0, metreage);
 
-        tableHTMLShow(2);
+    } else if(capacityValue === '12.000 Btus') {
+
+        tableHTMLShow(1, metreage);
+
+    } else if(capacityValue === '18.000 Btus') {
+
+        tableHTMLShow(2, metreage);
         
-    } else if(capacity === '24.000 Btus') {
+    } else if(capacityValue === '24.000 Btus') {
 
-        tableHTMLShow(3);
+        tableHTMLShow(3, metreage);
         
-    }  else if(capacity === '30.000 Btus') {
+    }  else if(capacityValue === '30.000 Btus') {
 
-        tableHTMLShow(4);
+        tableHTMLShow(4, metreage);
 
-    } else if(capacity === '36.000 Btus') {
+    } else if(capacityValue === '36.000 Btus') {
 
-        tableHTMLShow(5);
+        tableHTMLShow(5, metreage);
 
-    } else if(capacity === '48.000 Btus') {
+    } else if(capacityValue === '48.000 Btus') {
 
-        tableHTMLShow(6);
+        tableHTMLShow(6, metreage);
 
-    } else if(capacity === '60.000 Btus') {
+    } else if(capacityValue === '60.000 Btus') {
 
-        tableHTMLShow(7);
+        tableHTMLShow(7, metreage);
 
-    }     
+    }
 }

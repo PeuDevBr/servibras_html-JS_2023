@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form>
+    <form action="">
         <div class="dropdown menu" id="dropdownCapacity">
             <input 
                 type="text" 
@@ -42,8 +42,8 @@
             >
     
             <ul class="option">
-                <li onclick="showAmountDescription('Normal')">Normal</li>
-                <li onclick="showAmountDescription('Inverter')">Inverter</li>
+                <li onclick="showTypeDescription('Normal')">Normal</li>
+                <li onclick="showTypeDescription('Inverter')">Inverter</li>
             </ul>
         </div>
 
@@ -51,21 +51,21 @@
             <input 
                 type="number" 
                 class="inputQuantity" 
-                id="inputType"
+                id="inputMetreage"
                 placeholder="Metragem"
             >    
         </div>
 
         <div class="dropdown">
             <a 
-                type="number" 
-                class="button" 
-                placeholder="Metragem"
+                type="submit" 
+                class="button"
+                onclick="calculate()"
             >Calcular</a>
         </div>
     </form>
     <main>
-        <table>
+        <table class="showTable">
             <caption>Orçamento: </caption>
 
             <thead>
